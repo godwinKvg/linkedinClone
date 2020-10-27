@@ -1,9 +1,52 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content padding style="--padding-top: 25%;">
 
-<ion-content>
-
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <img src="assets/linkedin-icon.png" style="width: 50px;">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" color="primary"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" color="primary"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" color="primary"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row padding>
+      <ion-col>
+        <ion-text color="primary" routerLink="/forget-password">Forgot Password?</ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text color="primary" routerLink="/login">Login?</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button>Connect</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
