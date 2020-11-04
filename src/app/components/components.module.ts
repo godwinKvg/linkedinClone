@@ -1,3 +1,4 @@
+import { PipeModule } from './../pipes/pipe.module';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,13 +10,14 @@ import { PostComponent } from './post/post.component';
 @NgModule({
   declarations: [
     HeaderComponent,
-    PostComponent
+    PostComponent,
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    PipeModule
   ],
-  exports:[
+  exports: [
     HeaderComponent,
     PostComponent
   ]
