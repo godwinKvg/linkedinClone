@@ -2,7 +2,7 @@
   <ion-item lines="none"> 
     <ion-avatar slot="start">
       <ion-img
-        [src]="post.authorProfile">
+        [src]="post.authorProfileImg">
       </ion-img>
     </ion-avatar>
     <ion-label>
@@ -13,7 +13,7 @@
       <p style="font-size: xx-small;"> {{ moment(post.time).calendar() }} </p>
     </ion-label>
     <ion-buttons slot="end" >
-      <ion-button >
+      <ion-button > 
         <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -39,19 +39,20 @@
   <ion-img
     [src]="post.contentImg"
     alt="ion" *ngIf="post.contentImg"></ion-img>
-
   <ion-grid>
     <ion-row>
       <ion-col>
         <ion-chip>
-          <ion-icon name="thumbs-up-outline"></ion-icon>
-          <ion-icon name="heart-circle"></ion-icon>
-          <ion-icon name="heart-circle"></ion-icon>
-          <span> {{ post.likes }} </span>
+          <ion-icon name="thumbs-up-outline" color="primary"></ion-icon>
+          <ion-icon name="heart-circle" color="danger"></ion-icon>
+          <ion-icon name="heart-circle" color="success"></ion-icon>
+          <span> {{ post.likes | shortNumber}} </span>
         </ion-chip>
       </ion-col>
-      <ion-col class="ion-text-right ion-margin-top">
-        <span> {{ post.comments }} Comments</span>
+      <ion-col class="">
+        <ion-button buttonType="text">
+          <span> {{ post.comments | shortNumber}} Comments</span>
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -59,8 +60,9 @@
   <ion-footer>
     <ion-toolbar>
       <ion-buttons class="ion-justify-content-around">
-        <ion-button>
-          <ion-icon slot="icon-only" name="thumbs-up-outline"></ion-icon>
+        <ion-button (click)="onLike(post.id)">
+          <ion-icon slot="icon-only" [name]="isLiked?'thumbs-up':'thumbs-up-outline'" [color]="isLiked?'primary':''">
+          </ion-icon>
         </ion-button>
         <ion-button>
           <ion-icon slot="icon-only" name="chatbox-outline"></ion-icon>

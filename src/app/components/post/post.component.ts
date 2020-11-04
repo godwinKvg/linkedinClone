@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from './post';
+import { Post } from '../../models/post.models';
 import * as moment from 'moment';
 
 @Component({
@@ -9,9 +9,8 @@ import * as moment from 'moment';
 })
 export class PostComponent implements OnInit {
   @Input() post: Post;
-
   moment = moment;
-
+  isLiked: boolean;
   constructor() {}
 
   ngOnInit() {
@@ -23,12 +22,9 @@ export class PostComponent implements OnInit {
              post.content;
   }
 
-  addLike(){
-
-  }
-
-  removeLike(){
-
+  onLike(id: string){
+    this.isLiked = !this.isLiked;
+    this.isLiked ? this.post.likes++ : this.post.likes--;
   }
 
 }
