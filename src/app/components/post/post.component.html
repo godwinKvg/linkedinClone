@@ -1,0 +1,74 @@
+<ion-card>
+  <ion-item lines="none"> 
+    <ion-avatar slot="start">
+      <ion-img
+        [src]="post.authorProfile">
+      </ion-img>
+    </ion-avatar>
+    <ion-label>
+      <h3> {{ post.authorName }} </h3>
+      <p style="font-size: small;" *ngIf="post.authorDescription">
+        {{ post.authorDescription }}
+      </p>
+      <p style="font-size: xx-small;"> {{ moment(post.time).calendar() }} </p>
+    </ion-label>
+    <ion-buttons slot="end" >
+      <ion-button >
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+
+  
+  <ion-card-content >
+    <div style="color: black;" *ngIf="post.content">
+      
+       <div *ngIf="!post.showMore">
+         {{trimString(post,100)}}
+       </div>
+       <div *ngIf="post.showMore">
+         {{post.content}}
+       </div>
+       <a (click)="post.showMore = !post.showMore">Show <span [innerHtml]="post.showMore ? 'less' : 'More'"> </span>
+       </a>
+    </div>
+    
+   
+  </ion-card-content>
+  <ion-img
+    [src]="post.contentImg"
+    alt="ion" *ngIf="post.contentImg"></ion-img>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-chip>
+          <ion-icon name="thumbs-up-outline"></ion-icon>
+          <ion-icon name="heart-circle"></ion-icon>
+          <ion-icon name="heart-circle"></ion-icon>
+          <span> {{ post.likes }} </span>
+        </ion-chip>
+      </ion-col>
+      <ion-col class="ion-text-right ion-margin-top">
+        <span> {{ post.comments }} Comments</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons class="ion-justify-content-around">
+        <ion-button>
+          <ion-icon slot="icon-only" name="thumbs-up-outline"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon slot="icon-only" name="chatbox-outline"></ion-icon>
+        </ion-button>
+        <ion-button slot="end">
+          <ion-icon slot="icon-only" name="share-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+     </ion-toolbar>
+  </ion-footer>
+</ion-card>
