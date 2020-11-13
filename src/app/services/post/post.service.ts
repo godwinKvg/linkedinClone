@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Post } from '../../models/post.models';
 
 @Injectable({
@@ -14,8 +13,8 @@ export class PostService {
       content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, nisi, modi, architecto consectetur aliquid tempora earum aperiam officiis totam sunt tenetur! Incidunt unde dignissimos vero reiciendis consequuntur ipsa eius iste vitae. Voluptates corporis eum voluptatem aspernatur saepe magni, assumenda praesentium ex nesciunt. Distinctio, similique voluptatum.',
       time: Date.now() + 6000,
       contentImg: 'https://media-exp1.licdn.com/dms/image/C5622AQEUT-_6ePU8sQ/feedshare-shrink_800-alternative/0?e=1607558400&v=beta&t=ibu9fJBE2NazenbZDTV-dw9KyAcziT_TbVwSsOb4VmI',
-      likes: 10,
-      comments: 35000
+      likes: 0,
+      comments: 1
     },
     {
       authorName: 'Amnon',
@@ -59,15 +58,40 @@ export class PostService {
     },
   ];
 
-  public post$ = new Subject<Post[]>();
-
   constructor() {
     this.posts = this.posts.map(post => ({
       ...post,
       showMore: false,
     }));
 
+    this.posts.forEach((post, index) => {
+      post.id = index++;
+      post.showMore = false;
+    });
+
   }
 
+  getPostById(id: number): Post{
+    let selectedPost: Post;
+    this.posts.forEach(post => {
+      if (post.id === id){
+        selectedPost = post;
+        return;
+      }
+    });
+    return selectedPost;
+  }
 
+  like(id: number, isLiked: boolean){
+    this.posts.forEach(post => {
+      if (post.id === id) {
+        isLiked ? post.likes-- : post.likes++;
+        return;
+      }
+    });
+  }
+
+  getPosts(){
+    return this.posts;
+  }
 }

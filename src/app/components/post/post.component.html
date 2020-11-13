@@ -2,15 +2,15 @@
   <ion-item lines="none"> 
     <ion-avatar slot="start">
       <ion-img
-        [src]="post.authorProfileImg">
+        [src]="post?.authorProfileImg">
       </ion-img>
     </ion-avatar>
     <ion-label>
-      <h3> {{ post.authorName }} </h3>
-      <p style="font-size: small;" *ngIf="post.authorDescription">
-        {{ post.authorDescription }}
+      <h3> {{ post?.authorName }} </h3>
+      <p style="font-size: small;" *ngIf="post?.authorDescription">
+        {{ post?.authorDescription }}
       </p>
-      <p style="font-size: xx-small;"> {{ moment(post.time).calendar() }} </p>
+      <p style="font-size: xx-small;"> {{ moment(post?.time).calendar() }} </p>
     </ion-label>
     <ion-buttons slot="end" >
       <ion-button > 
@@ -22,36 +22,36 @@
 
   
   <ion-card-content >
-    <div style="color: black;" *ngIf="post.content">
+    <div style="color: black;" *ngIf="post?.content">
       
-       <div *ngIf="!post.showMore">
+       <div *ngIf="!post?.showMore">
          {{trimString(post,100)}}
        </div>
-       <div *ngIf="post.showMore">
-         {{post.content}}
+       <div *ngIf="post?.showMore">
+         {{post?.content}}
        </div>
-       <a (click)="post.showMore = !post.showMore">Show <span [innerHtml]="post.showMore ? 'less' : 'More'"> </span>
+       <a (click)="post.showMore = !post?.showMore">Show <span [innerHtml]="post?.showMore ? 'less' : 'More'"> </span>
        </a>
     </div>
     
    
   </ion-card-content>
   <ion-img
-    [src]="post.contentImg"
-    alt="ion" *ngIf="post.contentImg"></ion-img>
+    [src]="post?.contentImg"
+    alt="ion" *ngIf="post?.contentImg"></ion-img>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-chip>
-          <ion-icon name="thumbs-up-outline" color="primary"></ion-icon>
+        <ion-chip *ngIf="post?.likes">
           <ion-icon name="heart-circle" color="danger"></ion-icon>
-          <ion-icon name="heart-circle" color="success"></ion-icon>
-          <span> {{ post.likes | shortNumber}} </span>
+          <ion-icon name="thumbs-up" color="primary"></ion-icon>
+          <ion-icon name="flash" color="success"></ion-icon>
+          <span> {{ post?.likes | shortNumber}} </span>
         </ion-chip>
       </ion-col>
-      <ion-col class="">
-        <ion-button buttonType="text">
-          <span> {{ post.comments | shortNumber}} Comments</span>
+      <ion-col class="ion-text-right">
+        <ion-button buttonType="text" *ngIf="post?.comments" (click)="onGoComments(post?.id)">
+          <span> {{ post?.comments | shortNumber}} Comments</span>
         </ion-button>
       </ion-col>
     </ion-row>
@@ -60,12 +60,12 @@
   <ion-footer>
     <ion-toolbar>
       <ion-buttons class="ion-justify-content-around">
-        <ion-button (click)="onLike(post.id)">
+        <ion-button (click)="onLike(post?.id)">
           <ion-icon slot="icon-only" [name]="isLiked?'thumbs-up':'thumbs-up-outline'" [color]="isLiked?'primary':''">
           </ion-icon>
         </ion-button>
         <ion-button>
-          <ion-icon slot="icon-only" name="chatbox-outline"></ion-icon>
+          <ion-icon slot="icon-only" name="chatbox-outline" (click)="onGoComments(post?.id)"></ion-icon>
         </ion-button>
         <ion-button slot="end">
           <ion-icon slot="icon-only" name="share-outline"></ion-icon>

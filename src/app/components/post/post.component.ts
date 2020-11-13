@@ -1,6 +1,8 @@
+import { PostService } from './../../services/post/post.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../../models/post.models';
 import * as moment from 'moment';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -9,9 +11,17 @@ import * as moment from 'moment';
 })
 export class PostComponent implements OnInit {
   @Input() post: Post;
+  @Input() isMore = true;
+
+
   moment = moment;
   isLiked: boolean;
-  constructor() {}
+
+  pushPage: any;
+  constructor(
+    private router: Router,
+    private postService: PostService
+  ) {}
 
   ngOnInit() {
   }
@@ -22,9 +32,12 @@ export class PostComponent implements OnInit {
              post.content;
   }
 
-  onLike(id: string){
+  onLike(id: number){
+    this.postService.like(id, this.isLiked);
     this.isLiked = !this.isLiked;
-    this.isLiked ? this.post.likes++ : this.post.likes--;
   }
 
+  onGoComments(postId: number){
+    this.router.navigate(['tabs/feed/comments/', postId]);
+  }
 }
