@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Profile } from 'src/app/models/profile.models';
+import { IProfile } from 'src/app/models/profile.models';
 import * as moment from 'moment';
 
 @Component({
@@ -9,7 +9,7 @@ import * as moment from 'moment';
 })
 export class ProfileComponent implements OnInit {
   moment = moment;
-  @Input() profile: Profile;
+  @Input() profile: IProfile;
   constructor() { }
 
   ngOnInit() {}

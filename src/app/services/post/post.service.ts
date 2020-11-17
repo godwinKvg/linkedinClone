@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Post } from '../../models/post.models';
+import { IPost } from '../../models/post.models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  posts: Post[] = [
+  posts: IPost[] = [
     {
       authorName: 'Postman',
       authorProfileImg: 'https://media-exp1.licdn.com/dms/image/C4E22AQFkEJp7eZXqYg/feedshare-shrink_800-alternative/0?e=1607558400&v=beta&t=Hbxlu43YJmRfXxRyLSi_K7tj2TB8DMLCQZ5VQLucUVo',
@@ -71,8 +71,8 @@ export class PostService {
 
   }
 
-  getPostById(id: number): Post{
-    let selectedPost: Post;
+  getPostById(id: number): IPost{
+    let selectedPost: IPost;
     this.posts.forEach(post => {
       if (post.id === id){
         selectedPost = post;

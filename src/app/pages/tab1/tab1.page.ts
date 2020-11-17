@@ -1,5 +1,5 @@
 import { PostService } from './../../services/post/post.service';
-import { Post } from './../../models/post.models';
+import { IPost } from './../../models/post.models';
 import { Component } from '@angular/core';
 @Component({
   selector: 'app-tab1',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  posts: Post[];
+  posts: IPost[];
 
   constructor(
     private postService: PostService,
