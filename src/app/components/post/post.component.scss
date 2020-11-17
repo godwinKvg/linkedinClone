@@ -2,6 +2,10 @@ ion-item{
     ion-icon{
         font-size: medium;
     }
+    ion-input{
+        border:rgba(0, 0, 0, 0.301);
+        border-radius:8px;
+    }
 }
 
 ion-card{

@@ -2,8 +2,7 @@ import { PostService } from './../../services/post/post.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../../models/post.models';
 import * as moment from 'moment';
-import { ActivatedRoute, Router } from '@angular/router';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
