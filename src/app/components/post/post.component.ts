@@ -1,6 +1,6 @@
 import { PostService } from './../../services/post/post.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from '../../models/post.models';
+import { IPost } from '../../models/post.models';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-  @Input() post: Post;
+  @Input() post: IPost;
   @Input() isMore = true;
 
 
@@ -25,7 +25,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
 
-  trimString(post: Post, length: number) {
+  trimString(post: IPost, length: number) {
       return post.content.length > length ?
              post.content.substring(0, length) + '...' :
              post.content;
