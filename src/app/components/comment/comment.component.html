@@ -1,0 +1,21 @@
+<ion-list lines="none" *ngFor="let comment of comments">
+    <ion-item lines="none" padding>
+        <ion-avatar slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-item lines="none">
+            <ion-label>
+                <h3> {{ comment?.author_name }} </h3>
+                <p style="font-size: small;" *ngIf="comment?.author_description">
+                    {{ comment?.author_description }}
+                </p>
+                <p style="font-size: xx-small;"> {{ moment(comment?.time).calendar() }} </p>
+            </ion-label>
+            <ion-buttons slot="end">
+                <ion-button>
+                    <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+    </ion-item>
+</ion-list>

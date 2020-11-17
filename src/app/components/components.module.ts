@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { PostComponent } from './post/post.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 
@@ -12,7 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     HeaderComponent,
     PostComponent,
-    ProfileComponent
+    ProfileComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   exports: [
     HeaderComponent,
-    PostComponent
+    PostComponent,
+    CommentComponent
   ]
 })
 export class ComponentsModule { }
