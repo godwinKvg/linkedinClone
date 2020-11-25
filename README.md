@@ -6,11 +6,11 @@ First of all I'll make the UI and then the backend with Firebase ( I do not want
 
 So As soon as I will finish the front I will publish it.
 
-## Feel free to make suggestions
+## Remerciements
+Feel free to make suggestions
+Thanks 
 
-##Thanks 
-
-#Test it locally
+# Test it locally
 git clone (gitlink)
 npm install 
 ionic serve
