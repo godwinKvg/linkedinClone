@@ -12,5 +12,7 @@ Thanks
 
 # Test it locally
 git clone (gitlink)
+
 npm install 
+
 ionic serve
