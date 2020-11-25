@@ -8,28 +8,31 @@ export class CommentService {
 
   comments = [
     {
-      id: 'Do deserunt',
+      id: 'Do',
       author_id: 'Aute quis a',
       post_id: 'Labore',
-      author_name: 'Dolor mollit',
-      author_description: 'Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.',
-      time: 'Laborum qui esse Lorem ex ex amet.',
+      author_name: 'Doh Junior',
+      author_description: 'Veniam Lorem eiusmod ',
+      content: 'magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.',
+      time: Date.now(),
+    },
+    {
+      id: 'Do d',
+      author_id: 'Aute quis a',
+      post_id: 'Labore',
+      author_name: 'DeRTYUIserunt',
+      author_description: 'Veniam Lorem eiusmod ',
+      content: 'magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.',
+      time: Date.now(),
     },
     {
       id: 'Do deserunt',
       author_id: 'Aute quis a',
       post_id: 'Labore',
-      author_name: 'Dolor mollit',
-      author_description: 'Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.',
-      time: 'Laborum qui esse Lorem ex ex amet.',
-    },
-    {
-      id: 'Do deserunt',
-      author_id: 'Aute quis a',
-      post_id: 'Labore',
-      author_name: 'Dolor mollit',
-      author_description: 'Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.',
-      time: 'Laborum qui esse Lorem ex ex amet.',
+      author_name: 'DGrante',
+      author_description: 'non qui adipisicing', 
+      content: 'aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.Veniam Lorem eiusmod magna non qui adipisicing aute ipsum.',
+      time: Date.now(),
     }
   ];
 

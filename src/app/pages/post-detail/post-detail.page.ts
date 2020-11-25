@@ -5,6 +5,7 @@ import { PostService } from './../../services/post/post.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import * as moment from 'moment';
 @Component({
   selector: 'app-post-detail',
@@ -31,4 +32,7 @@ export class PostDetailPage implements OnInit {
     this.comments = this.commentService.getPostComment(Number(postId));
   }
 
+  onMoreOptions(){
+    
+  }
 }

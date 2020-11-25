@@ -1,14 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-buttons>
+      <ion-back-button defaultHref="/tabs/feed"></ion-back-button>
+      
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onMoreOptions()" slot="end">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+      
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <app-post [post]="post"></app-post>
-  <ion-footer>
-    <app-comment comments="comments"></app-comment>
-  </ion-footer>
+  <app-comment [comments]="comments"></app-comment>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="full" style="border: black;">
+          <ion-input type="send" placeholder="Add your comment"></ion-input>
+          <ion-icon name="send-sharp" color="primary" slot="end"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
