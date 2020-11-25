@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor() { }
 
+
+  onPost() {
+    console.log('User Post');
+  }
 }
