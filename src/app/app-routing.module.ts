@@ -27,10 +27,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule)
   },
   {
-    path: 'post-detail',
-    loadChildren: () => import('./pages/post-detail/post-detail.module').then( m => m.PostDetailPageModule)
-  },
-  {
     path: '**',
     redirectTo: ''
   }
