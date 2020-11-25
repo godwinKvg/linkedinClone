@@ -1,13 +1,14 @@
 <ion-item *ngIf="data">
     <ion-label>23 comments</ion-label>
 </ion-item>
-<ion-list lines="none" *ngFor="let comment of comments">
+<ion-list lines="none" *ngFor="let comment of comments" class="ion-no-padding">
     <ion-item lines="none" padding *ngIf="data">
         <ion-grid no-padding>
             <ion-row>
                 <ion-col size="2">
                     <ion-avatar>
-                        <ion-img src="https://media-exp1.licdn.com/dms/image/C4D22AQFodrYY0ENRhg/feedshare-shrink_1280-alternative/0?e=1607558400&v=beta&t=bbXX-0VneCzYRUn5eiT6gJF8tr5mJUrlGtBt-DqLCPs"></ion-img>
+                        <ion-img [src]="comment.author_profile">
+                        </ion-img>
                     </ion-avatar>
 
                 </ion-col>
@@ -15,32 +16,37 @@
                     <div class="ion-padding">
                         <div>
                             <div class="ion-float-right">
-                                <p>12h</p>
-                                <ion-button fill="clear" shape="round">
-                                    <ion-icon slot="start" name="ellipsis-vertical"></ion-icon>    
+
+                                <span>
+                                    {{ (comment?.time - now < 120) ? '1 min': moment(comment?.time).fromNow() }}
+                                </span>
+                                <ion-button color="none">
+                                    <ion-icon size="small" slot="icon-only" name="ellipsis-vertical" color="primary">
+                                    </ion-icon>
                                 </ion-button>
+
                             </div>
                             <div>
                                 <b>Awesome Label</b>
                                 <p class="ion-no-margin">Lorem ipsum dolor sit amet.</p>
                             </div>
-                            
+
                         </div>
-                        <div>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae necessitatibus consequatur doloribus iste, illum distinctio voluptates, non hic perferendis at tempora eligendi! Consequuntur!
+                        <div style="margin-top: 12px;">
+                            {{ comment.content }}
                         </div>
                     </div>
-                    <div >
+                    <div>
                         <ion-buttons slot="start">
-                            <ion-button fill="clear" shape="round" (click)="likeOrUnlike()">
-                                <ion-icon slot="icon-only" [name]="isLiked?'thumbs-up':'thumbs-up-outline'"
-                                    [color]="isLiked?'primary':''"></ion-icon>
+                            <ion-button fill="clear" shape="round" (click)="likeOrUnlike(comment)">
+                                <ion-icon slot="icon-only" [name]="isLiked(comment.id)?'thumbs-up':'thumbs-up-outline'"
+                                    [color]="isLiked(comment.id)?'primary':''"></ion-icon>
                             </ion-button>
                             <ion-button fill="clear" shape="round" (click)="hideOrShowInput()">
                                 <ion-icon slot="icon-only" name="chatbox-outline"></ion-icon>
                             </ion-button>
                             <ion-item slot="end" style="font-size: small;">
-                                <ion-label> {{ likes }} | Like</ion-label>
+                                <ion-label> {{ comment.likes }} | Like</ion-label>
                             </ion-item>
                         </ion-buttons>
                     </div>

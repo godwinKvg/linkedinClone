@@ -6,4 +6,7 @@ export interface IComment {
     author_description: string;
     content: string;
     time: number;
+    author_profile?: string;
+    likes: number;
+    isLiked?: boolean;
 }

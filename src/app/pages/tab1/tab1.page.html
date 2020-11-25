@@ -2,6 +2,14 @@
     <app-header></app-header>
 </ion-header>
 <ion-content color="light">
+    <ion-item lines="full" (click)="onGoPost()" style="margin-top: 9px;" margin>
+        <ion-icon size="large" name="create-outline">
+        </ion-icon>
+        <a padding routerLink="/tabs/post" style="text-decoration: none;color:rgba(0, 0, 0, 0.788);">
+            Share your throughs or photos
+        </a>
+
+    </ion-item>
     <div *ngFor="let post of posts">
         <app-post [post]="post"></app-post>
     </div>

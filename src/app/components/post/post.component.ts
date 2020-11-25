@@ -12,35 +12,41 @@ export class PostComponent implements OnInit {
   @Input() post: IPost;
   @Input() isMore = true;
   data = false;
-
+  date = Date.now();
   moment = moment;
-  isLiked: boolean;
 
   pushPage: any;
   constructor(
     private router: Router,
     private postService: PostService
-  ) {}
+  ) { }
 
   ngOnInit() {
 
     setTimeout(() => {
-      this.data = true
+      this.data = true;
     }, 1000);
   }
 
   trimString(post: IPost, length: number) {
-      return post.content.length > length ?
-             post.content.substring(0, length) + '...' :
-             post.content;
+    return post.content.length > length ?
+      post.content.substring(0, length) + '...' :
+      post.content;
   }
 
-  onLike(id: number){
-    this.postService.like(id, this.isLiked);
-    this.isLiked = !this.isLiked;
+  onLike(post) {
+    this.isLiked(post.id) ? post.likes-- : post.likes++;
   }
 
-  onGoComments(postId: number){
+  isLiked(id: string): boolean {
+    // Faire une requête au serveur pour savoir si l'user a liker.
+    let isLiked = false;
+
+    isLiked = !isLiked;
+    return isLiked;
+  }
+
+  onGoComments(postId: number) {
     this.router.navigate(['tabs/feed/comments/', postId]);
   }
 }

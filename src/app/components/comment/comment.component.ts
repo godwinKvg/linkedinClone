@@ -9,12 +9,12 @@ import * as moment from 'moment';
 export class CommentComponent implements OnInit {
   @Input() comments: IComment[];
   moment = moment;
-  isLiked = false;
   isResponded = true;
   showCommentInput = false;
-  likes = 0;
-
+  now = Date.now();
   data = false;
+
+
   constructor() { }
 
   ngOnInit() {
@@ -23,13 +23,19 @@ export class CommentComponent implements OnInit {
     }, 1000);
   }
 
-  hideOrShowInput(){
-    this.showCommentInput= !this.showCommentInput;
+  hideOrShowInput() {
+    this.showCommentInput = !this.showCommentInput;
   }
 
-  likeOrUnlike(){
-    this.isLiked = !this.isLiked;
-    this.likes = this.likes == 0?1:0;
+  likeOrUnlike(comment) {
+    this.isLiked(comment.id) ? comment.likes-- : comment.likes++;
+  }
+
+  isLiked(id: string): boolean {
+    // Faire une requête au serveur pour savoir si l'user a liker.
+    let isLiked = false;
+    isLiked = !isLiked;
+    return isLiked;
   }
 
 }

@@ -10,3 +10,15 @@ ion-item{
     background-color: #e1e9ee;
     font-size: 14px;
 }
+/* 
+ion-button{
+    background-color: transparent;
+    
+    &.button-native::after,
+    &.button-native::before {
+        display: inline;
+        width:0!important;
+        height: 0;
+    }
+}
+ */

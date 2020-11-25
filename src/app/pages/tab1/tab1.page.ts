@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PostService } from './../../services/post/post.service';
 import { IPost } from './../../models/post.models';
 import { Component } from '@angular/core';
@@ -11,9 +12,14 @@ export class Tab1Page {
   posts: IPost[];
 
   constructor(
+    private router: Router,
     private postService: PostService,
   ) {
     this.posts = postService.posts;
+  }
+
+  onGoPost() {
+    this.router.navigate(['/tabs/post']);
   }
 
 }
