@@ -1,11 +1,11 @@
 export interface IPost {
     id?: number;
-    authorProfileImg: string;
+    authorProfileImage: string;
     authorName: string;
     authorDescription: string;
     time: number;
     content: string;
-    contentImg: string;
+    contentImage: string;
     likes: number;
     comments: number;
     showMore?: boolean;
