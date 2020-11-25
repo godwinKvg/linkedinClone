@@ -1,8 +1,7 @@
-<ion-card>
-  <ion-item lines="none"> 
+<ion-card *ngIf="data">
+  <ion-item lines="none">
     <ion-avatar slot="start">
-      <ion-img
-        [src]="post?.authorProfileImg">
+      <ion-img [src]="post?.authorProfileImage || '/assets/profile.png'">
       </ion-img>
     </ion-avatar>
     <ion-label>
@@ -12,60 +11,48 @@
       </p>
       <p style="font-size: xx-small;"> {{ moment(post?.time).calendar() }} </p>
     </ion-label>
-    <ion-buttons slot="end" >
-      <ion-button > 
+    <ion-buttons slot="end">
+      <ion-button>
         <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-item>
 
 
-  
-  <ion-card-content >
+
+  <ion-card-content (click)="onGoComments(post?.id)">
     <div style="color: black;" *ngIf="post?.content">
-      
-       <div *ngIf="!post?.showMore">
-         {{trimString(post,100)}}
-       </div>
-       <div *ngIf="post?.showMore">
-         {{post?.content}}
-       </div>
-       <a (click)="post.showMore = !post?.showMore">Show <span [innerHtml]="post?.showMore ? 'less' : 'More'"> </span>
-       </a>
+
+      <div *ngIf="!post?.showMore">
+        {{trimString(post,100)}}
+      </div>
+      <div *ngIf="post?.showMore">
+        {{post?.content}}
+      </div>
+      <a (click)="post.showMore = !post?.showMore">Show <span [innerHtml]="post?.showMore ? 'less' : 'More'"> </span>
+      </a>
     </div>
-    
-   
+
+
   </ion-card-content>
-  <ion-img
-    [src]="post?.contentImg"
-    alt="ion" *ngIf="post?.contentImg"></ion-img>
+  <ion-img [src]="post.contentImage" *ngIf="post.contentImage"></ion-img>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-chip *ngIf="post?.likes">
-          <ion-icon name="heart-circle" color="danger"></ion-icon>
-          <ion-icon name="thumbs-up" color="primary"></ion-icon>
-          <ion-icon name="flash" color="success"></ion-icon>
-          <span> {{ post?.likes | shortNumber}} </span>
+        <ion-chip *ngIf="isLiked">
+          <ion-icon name="heart" color="danger"></ion-icon>
+          <ion-icon [name]="isLiked?'thumbs-up':'thumbs-up-outline'" color="primary"></ion-icon>
+          <ion-icon name="flash-outline" color="success"></ion-icon>
+          <span> {{ post.likes | shortNumber }}</span>
         </ion-chip>
       </ion-col>
       <ion-col class="ion-text-right">
-        <ion-button buttonType="text" *ngIf="post?.comments" (click)="onGoComments(post?.id)">
-          <span> {{ post?.comments | shortNumber}} Comments</span>
+        <ion-button buttonType="text" (click)="onGoComments(post?.id)">
+          {{ post.comments | shortNumber }} Comments
         </ion-button>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item lines="none">
-          <ion-input type="send" placeholder="Comment"></ion-input>
-          <ion-icon name="send-sharp" slot="end"></ion-icon>
-        </ion-item>
-      </ion-col>
-    </ion-row>
   </ion-grid>
-
-  
 
   <ion-footer>
     <ion-toolbar>
@@ -81,6 +68,78 @@
           <ion-icon slot="icon-only" name="share-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
-     </ion-toolbar>
+    </ion-toolbar>
+  </ion-footer>
+</ion-card>
+
+<ion-card *ngIf="!data">
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+    </ion-avatar>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </p>
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+    </ion-buttons>
+  </ion-item>
+
+
+
+  <ion-card-content>
+    <div>
+      <div>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </div>
+      <div>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </div>
+      <a>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </a>
+    </div>
+  </ion-card-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-chip>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </ion-chip>
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <ion-button buttonType="text">
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons class="ion-justify-content-around">
+        <ion-button>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </ion-button>
+        <ion-button>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </ion-button>
+        <ion-button slot="end">
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
   </ion-footer>
 </ion-card>

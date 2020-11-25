@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class PostComponent implements OnInit {
   @Input() post: IPost;
   @Input() isMore = true;
-
+  data = false;
 
   moment = moment;
   isLiked: boolean;
@@ -23,6 +23,10 @@ export class PostComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    setTimeout(() => {
+      this.data = true
+    }, 1000);
   }
 
   trimString(post: IPost, length: number) {

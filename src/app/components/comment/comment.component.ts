@@ -9,9 +9,27 @@ import * as moment from 'moment';
 export class CommentComponent implements OnInit {
   @Input() comments: IComment[];
   moment = moment;
+  isLiked = false;
+  isResponded = true;
+  showCommentInput = false;
+  likes = 0;
 
+  data = false;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    setTimeout(() => {
+      this.data = true;
+    }, 1000);
+  }
+
+  hideOrShowInput(){
+    this.showCommentInput= !this.showCommentInput;
+  }
+
+  likeOrUnlike(){
+    this.isLiked = !this.isLiked;
+    this.likes = this.likes == 0?1:0;
+  }
 
 }

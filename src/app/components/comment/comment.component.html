@@ -1,21 +1,85 @@
+<ion-item *ngIf="data">
+    <ion-label>23 comments</ion-label>
+</ion-item>
 <ion-list lines="none" *ngFor="let comment of comments">
-    <ion-item lines="none" padding>
-        <ion-avatar slot="start">
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <ion-item lines="none">
-            <ion-label>
-                <h3> {{ comment?.author_name }} </h3>
-                <p style="font-size: small;" *ngIf="comment?.author_description">
-                    {{ comment?.author_description }}
-                </p>
-                <p style="font-size: xx-small;"> {{ moment(comment?.time).calendar() }} </p>
-            </ion-label>
-            <ion-buttons slot="end">
-                <ion-button>
-                    <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
-                </ion-button>
-            </ion-buttons>
-        </ion-item>
+    <ion-item lines="none" padding *ngIf="data">
+        <ion-grid no-padding>
+            <ion-row>
+                <ion-col size="2">
+                    <ion-avatar>
+                        <ion-img src="https://media-exp1.licdn.com/dms/image/C4D22AQFodrYY0ENRhg/feedshare-shrink_1280-alternative/0?e=1607558400&v=beta&t=bbXX-0VneCzYRUn5eiT6gJF8tr5mJUrlGtBt-DqLCPs"></ion-img>
+                    </ion-avatar>
+
+                </ion-col>
+                <ion-col size="10" no-padding>
+                    <div class="ion-padding">
+                        <div>
+                            <div class="ion-float-right">
+                                <p>12h</p>
+                                <ion-button fill="clear" shape="round">
+                                    <ion-icon slot="start" name="ellipsis-vertical"></ion-icon>    
+                                </ion-button>
+                            </div>
+                            <div>
+                                <b>Awesome Label</b>
+                                <p class="ion-no-margin">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            
+                        </div>
+                        <div>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae necessitatibus consequatur doloribus iste, illum distinctio voluptates, non hic perferendis at tempora eligendi! Consequuntur!
+                        </div>
+                    </div>
+                    <div >
+                        <ion-buttons slot="start">
+                            <ion-button fill="clear" shape="round" (click)="likeOrUnlike()">
+                                <ion-icon slot="icon-only" [name]="isLiked?'thumbs-up':'thumbs-up-outline'"
+                                    [color]="isLiked?'primary':''"></ion-icon>
+                            </ion-button>
+                            <ion-button fill="clear" shape="round" (click)="hideOrShowInput()">
+                                <ion-icon slot="icon-only" name="chatbox-outline"></ion-icon>
+                            </ion-button>
+                            <ion-item slot="end" style="font-size: small;">
+                                <ion-label> {{ likes }} | Like</ion-label>
+                            </ion-item>
+                        </ion-buttons>
+                    </div>
+
+                    <ion-item lines="full" *ngIf="showCommentInput">
+                        <ion-input type="send" placeholder="As I lift my voice in praize"></ion-input>
+                        <ion-icon name="send-sharp" color="primary" slot="end"></ion-icon>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item>
+
+    <ion-item lines="none" padding *ngIf="!data">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="2">
+                    <ion-avatar>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-avatar>
+
+                </ion-col>
+                <ion-col size="10">
+                    <div class="ion-padding">
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </div>
+                    <div>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </div>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </ion-item>
 </ion-list>
