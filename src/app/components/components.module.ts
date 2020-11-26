@@ -22,7 +22,7 @@ import { CommentComponent } from './comment/comment.component';
   exports: [
     HeaderComponent,
     PostComponent,
-    CommentComponent
+    CommentComponent,
   ]
 })
 export class ComponentsModule { }
