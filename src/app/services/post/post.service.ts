@@ -24,7 +24,7 @@ export class PostService {
       time: Date.now() - 360000,
       content_image: 'https://media-exp1.licdn.com/dms/image/C4D22AQFodrYY0ENRhg/feedshare-shrink_1280-alternative/0?e=1607558400&v=beta&t=bbXX-0VneCzYRUn5eiT6gJF8tr5mJUrlGtBt-DqLCPs',
       likes: 203,
-      comments: 30700000000
+      comments: 3070
     },
     {
       author_name: 'Amanda Malela',
@@ -34,7 +34,7 @@ export class PostService {
       time: Date.now() - 70002000,
       content_image: 'https://media-exp1.licdn.com/dms/image/C4D22AQESOyvzzobsUA/feedshare-shrink_800-alternative/0?e=1607558400&v=beta&t=skfWOBxqVALXqSfuAGDgMfMOQFMOLOot2lQNVK5_C7Y',
       likes: 236789,
-      comments: 300000
+      comments: 3000
     },
     {
       author_name: 'Amanda Malela',
@@ -66,32 +66,18 @@ export class PostService {
 
     this.posts.forEach((post, index) => {
       post.id = index++;
-      post.showMore = false;
     });
 
   }
 
   getPostById(id: number): IPost {
-    let selectedPost: IPost;
-    this.posts.forEach(post => {
-      if (post.id === id) {
-        selectedPost = post;
-        return;
-      }
-    });
-    return selectedPost;
+    return this.posts.find(post => {
+        return post.id === id;
+      });
   }
 
-  like(id: number, isLiked: boolean) {
-    this.posts.forEach(post => {
-      if (post.id === id) {
-        isLiked ? post.likes-- : post.likes++;
-        return;
-      }
-    });
-  }
 
   getPosts() {
-    return this.posts;
+    return [...this.posts];
   }
 }

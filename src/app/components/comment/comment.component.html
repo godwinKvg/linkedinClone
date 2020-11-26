@@ -1,10 +1,10 @@
 
-    <ion-item lines="none" padding *ngIf="data">
+    <ion-item lines="none" padding *ngIf="data" mode="ios">
         <ion-grid no-padding>
             <ion-row>
                 <ion-col size="2">
                     <ion-avatar>
-                        <ion-img [src]="comment.author_profile">
+                        <ion-img [src]="comment?.author_profile">
                         </ion-img>
                     </ion-avatar>
 
@@ -46,9 +46,6 @@
                                 <ion-label> {{ comment.likes }} | Like</ion-label>
                             </ion-item>
                         </ion-buttons>
-                    </div>
-                    <div class="ion-margin" *ngIf="isResponded">
-                        <app-comment></app-comment>
                     </div>
                     <ion-item lines="full" *ngIf="showCommentInput">
                         <ion-input type="send" placeholder="As I lift my voice in praize"></ion-input>
