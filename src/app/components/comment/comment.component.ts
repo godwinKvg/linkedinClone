@@ -7,11 +7,13 @@ import * as moment from 'moment';
   styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent implements OnInit {
-  @Input() comments: IComment[];
+  @Input() comment: IComment;
   moment = moment;
-  isResponded = true;
   showCommentInput = false;
   now = Date.now();
+
+  isResponded = true;
+
   data = false;
 
 
@@ -20,19 +22,21 @@ export class CommentComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.data = true;
-    }, 1000);
+    }, 2000);
   }
 
-  hideOrShowInput() {
+  hideOrShowCommentInput() {
     this.showCommentInput = !this.showCommentInput;
   }
 
-  likeOrUnlike(comment) {
-    this.isLiked(comment.id) ? comment.likes-- : comment.likes++;
+  likeOrUnlike() {
+    this.isLiked() ? this.comment.likes-- : this.comment.likes++;
   }
 
-  isLiked(id: string): boolean {
-    // Faire une requête au serveur pour savoir si l'user a liker.
+  isLiked(): boolean {
+    /* Faire une requête au serveur pour savoir si l'user a liker.
+      Ici sera la requête
+    */
     let isLiked = false;
     isLiked = !isLiked;
     return isLiked;

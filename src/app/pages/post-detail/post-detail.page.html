@@ -15,7 +15,9 @@
 
 <ion-content>
   <app-post [post]="post"></app-post>
-  <app-comment [comments]="comments"></app-comment>
+  <ion-list lines="none" *ngFor="let comment of comments" class="ion-no-padding">
+    <app-comment [comment]="comment"></app-comment>
+  </ion-list>
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar>

@@ -1,7 +1,4 @@
-<ion-item *ngIf="data">
-    <ion-label>23 comments</ion-label>
-</ion-item>
-<ion-list lines="none" *ngFor="let comment of comments" class="ion-no-padding">
+
     <ion-item lines="none" padding *ngIf="data">
         <ion-grid no-padding>
             <ion-row>
@@ -38,11 +35,11 @@
                     </div>
                     <div>
                         <ion-buttons slot="start">
-                            <ion-button fill="clear" shape="round" (click)="likeOrUnlike(comment)">
-                                <ion-icon slot="icon-only" [name]="isLiked(comment.id)?'thumbs-up':'thumbs-up-outline'"
-                                    [color]="isLiked(comment.id)?'primary':''"></ion-icon>
+                            <ion-button fill="clear" shape="round" (click)="likeOrUnlike()">
+                                <ion-icon slot="icon-only" [name]="isLiked()?'thumbs-up':'thumbs-up-outline'"
+                                    [color]="isLiked()?'primary':''"></ion-icon>
                             </ion-button>
-                            <ion-button fill="clear" shape="round" (click)="hideOrShowInput()">
+                            <ion-button fill="clear" shape="round" (click)="hideOrShowCommentInput()">
                                 <ion-icon slot="icon-only" name="chatbox-outline"></ion-icon>
                             </ion-button>
                             <ion-item slot="end" style="font-size: small;">
@@ -50,7 +47,9 @@
                             </ion-item>
                         </ion-buttons>
                     </div>
-
+                    <div class="ion-margin" *ngIf="isResponded">
+                        <app-comment></app-comment>
+                    </div>
                     <ion-item lines="full" *ngIf="showCommentInput">
                         <ion-input type="send" placeholder="As I lift my voice in praize"></ion-input>
                         <ion-icon name="send-sharp" color="primary" slot="end"></ion-icon>
@@ -88,4 +87,3 @@
             </ion-row>
         </ion-grid>
     </ion-item>
-</ion-list>
