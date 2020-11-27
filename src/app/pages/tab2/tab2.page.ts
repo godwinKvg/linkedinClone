@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { IonInfiniteScroll } from '@ionic/angular';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +7,27 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  profiles = Array(5)
+  constructor() { }
 
-  constructor() {}
+  loadData(event) {
+    setTimeout(() => {
+      event.target.complete();
+
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (this.profiles.length == 1000) {
+        event.target.disabled = true;
+      }
+      this.profiles = [...this.profiles, ...Array(20)];
+
+    }, 500);
+
+  }
+
+  toggleInfiniteScroll() {
+    this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+  }
 
 }
