@@ -1,99 +1,119 @@
 <ion-header>
   <app-header></app-header>
 </ion-header>
-<ion-content fullscreen="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6" class="ion-text-center" routerLink="/tabs/feed">
-        <h1 style="margin: 7px;">123</h1>
-        <span>connections</span>
-      </ion-col>
-      <ion-col size="6" class="ion-text-center" routerLink="/tabs/feed">
-        <ion-button fill="clear">
-          <ion-icon name="person-add-outline" color="dark"></ion-icon>
-        </ion-button>
-        <span style="display: block;">Add Contacts</span>
-      </ion-col>
-    </ion-row>
+<ion-content color="light">
+  <ion-item style="margin: 12px 0;" lines="none">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6" class="ion-text-center" routerLink="/tabs/feed">
+          <h1 style="margin: 7px;">123</h1>
+          <span>connections</span>
+        </ion-col>
+        <ion-col size="6" class="ion-text-center" routerLink="/tabs/feed">
+          <ion-button fill="clear">
+            <ion-icon name="person-add-outline" color="dark"></ion-icon>
+          </ion-button>
+          <span style="display: block;">Add Contacts</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
 
-    <ion-row color="light" style="border-top:solid 1px black ; margin-top: 12px;">
-      <ion-col size="12" style="display: flex;justify-content:space-around;">
-        <p>
-          Invitations
-        </p>
-        <p style="color: rgba(41, 41, 150, 0.856);">
-          SEE ALL
-        </p>
-      </ion-col>
+  <ion-item lines="none">
+    <ion-grid class="ion-no-padding">
+      <ion-row color="light">
+        <ion-col size="12" style="display: flex;justify-content:space-around;">
+          <p>
+            Invitations
+          </p>
+          <p style="color: rgba(41, 41, 150, 0.856);">
+            SEE ALL
+          </p>
+        </ion-col>
 
-      <ion-col size="12">
-        <ion-row>
-          <ion-col size="2">
-            <ion-avatar>
-              <ion-img src="/assets/profile.png">
-              </ion-img>
-            </ion-avatar>
-          </ion-col>
-          <ion-col size="10" class="ion-padding-start">
-            <span>Kavege Kodjo Leger</span>
-            <p style="font-size: small;" class="ion-no-margin">
-              Lorem ipsum dolor sit eueue eeejeje djdhdh amet consectetur, adipi
-            </p>
-            <span>
-              <ion-icon name="link-outline"></ion-icon>
-              12 connections
-            </span>
+        <ion-col size="12">
+          <ion-row>
+            <ion-col size="2">
+              <ion-avatar>
+                <ion-img src="/assets/profile.png">
+                </ion-img>
+              </ion-avatar>
+            </ion-col>
+            <ion-col size="10" class="ion-padding-start">
+              <span>Kavege Kodjo Leger</span>
+              <p style="font-size: small;" class="ion-no-margin">
+                Lorem ipsum dolor sit eueue eeejeje djdhdh amet consectetur, adipi
+              </p>
+              <span>
+                <ion-icon name="link-outline"></ion-icon>
+                <span style="font-size: small;">12 connections</span>
+              </span>
 
-            <ion-item lines="none" class="ion-no-padding">
-              <ion-button expand="block" color="primary">
-                CONNECT
-              </ion-button>
-              <ion-button expand="block" fill="outline">
-                REMOVE
-              </ion-button>
-            </ion-item>
+              <ion-item lines="none" class="ion-no-padding">
+                <ion-button expand="block" color="primary">
+                  CONNECT
+                </ion-button>
+                <ion-button expand="block" fill="outline">
+                  REMOVE
+                </ion-button>
+              </ion-item>
 
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
-    <ion-row style="border-top:solid 1px black ;">
-      <ion-col size="12">
+
+  <ion-item class="ion-margin-top" lines="none">
+    <ion-grid>
+      <ion-row>
         <p>People you may know</p>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let p of [2,3,4,2]">
-      <ion-col size="2">
-        <ion-avatar>
-          <ion-img src="/assets/profile.png">
-          </ion-img>
-        </ion-avatar>
-      </ion-col>
-      <ion-col size="10" class="ion-padding-start">
-        <span>Kavege Kodjo Leger</span>
-        <p style="font-size: small;" class="ion-no-margin">
-          Lorem ipsum dolor sit eueue eeejeje djdhdh amet consectetur, adipi
-        </p>
-        <span>
-          <ion-icon name="link-outline"></ion-icon>
-          12 connections
-        </span>
+      </ion-row>
+      <ion-list>
+        <ion-item class="ion-no-padding">
+          <ion-grid class="ion-no-padding">
+            <ion-row *ngFor="let profile of profiles">
+              <ion-col size="2">
+                <ion-avatar>
+                  <ion-img src="/assets/profile.png">
+                  </ion-img>
+                </ion-avatar>
+              </ion-col>
+              <ion-col size="10" class="ion-padding-start">
+                <span>Kavege Kodjo Leger</span>
+                <p style="font-size: small;" class="ion-no-margin">
+                  Lorem ipsum dolor sit eueue eeejeje djdhdh amet consectetur, adipi
+                </p>
+                <span>
+                  <ion-icon name="link-outline"></ion-icon>
+                  <span style="font-size: small;">12 connections</span>
+
+                </span>
 
 
-        <ion-item lines="full" class="ion-no-padding">
-          <ion-button expand="block" color="primary">
-            CONNECT
-          </ion-button>
-          <ion-button expand="block" fill="outline">
-            REMOVE
-          </ion-button>
+                <ion-item lines="full" class="ion-no-padding">
+                  <ion-button expand="block" color="primary">
+                    CONNECT
+                  </ion-button>
+                  <ion-button expand="block" fill="outline">
+                    REMOVE
+                  </ion-button>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-infinite-scroll threshold="10%" (ionInfinite)="loadData($event)">
+              <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+              </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+          </ion-grid>
         </ion-item>
-      </ion-col>
-    </ion-row>
+      </ion-list>
 
-  </ion-grid>
+    </ion-grid>
+  </ion-item>
 
 
 
