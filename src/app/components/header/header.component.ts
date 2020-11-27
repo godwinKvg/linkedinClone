@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,8 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() search: string;
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  goSearchPage() {
+    (this.search.split(' ').includes('jobs')) ?
+      this.router.navigate(['#search']) : this.router.navigate(['/tabs/feed/#search'])
+  }
 
 }
