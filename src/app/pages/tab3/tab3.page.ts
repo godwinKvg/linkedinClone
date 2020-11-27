@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
+  post_content: string;
   constructor() { }
 
 
   onPost() {
-    console.log('User Post');
+    console.log('User Input : ',this.post_content);
   }
 }
