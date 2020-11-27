@@ -8,7 +8,7 @@ export class PostService {
   posts: IPost[] = [
     {
       author_name: 'Postman',
-      author_profile: 'https://media-exp1.licdn.com/dms/image/C4E22AQFkEJp7eZXqYg/feedshare-shrink_800-alternative/0?e=1607558400&v=beta&t=Hbxlu43YJmRfXxRyLSi_K7tj2TB8DMLCQZ5VQLucUVo',
+      author_profile: '/assets/profile.png',
       author_description: 'REST API Documentation',
       content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, nisi, modi, architecto consectetur aliquid tempora earum aperiam officiis totam sunt tenetur! Incidunt unde dignissimos vero reiciendis consequuntur ipsa eius iste vitae. Voluptates corporis eum voluptatem aspernatur saepe magni, assumenda praesentium ex nesciunt. Distinctio, similique voluptatum.',
       time: Date.now() - 6000,
@@ -18,7 +18,7 @@ export class PostService {
     },
     {
       author_name: 'Amnon',
-      author_profile: 'https://media-exp1.licdn.com/dms/image/C4E22AQFkEJp7eZXqYg/feedshare-shrink_800-alternative/0?e=1607558400&v=beta&t=Hbxlu43YJmRfXxRyLSi_K7tj2TB8DMLCQZ5VQLucUVo',
+      author_profile: '/assets/profile.png',
       author_description: 'Disciple de Christ',
       content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, ',
       time: Date.now() - 360000,
@@ -37,7 +37,7 @@ export class PostService {
       comments: 3000
     },
     {
-      author_name: 'Amanda Malela',
+      author_name: 'Amanda Ma',
       author_profile: 'https://media-exp1.licdn.com/dms/image/C4D22AQESOyvzzobsUA/feedshare-shrink_800-alternative/0?e=1607558400&v=beta&t=skfWOBxqVALXqSfuAGDgMfMOQFMOLOot2lQNVK5_C7Y',
       author_description: 'Voyageur | Yoga | Experimentateur',
       content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, nisi, modi, architecto consectetur aliquid tempora earum aperiam officiis totam sunt tenetur! Incidunt unde dignissimos vero reiciendis consequuntur ipsa eius iste vitae. Voluptates corporis eum voluptatem aspernatur saepe magni, assumenda praesentium ex nesciunt. Distinctio, similique voluptatum.',

@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class PostComponent implements OnInit {
   @Input() post: IPost;
-  @Input() isMore = true;
+
   data = false;
   date = Date.now();
   moment = moment;
+  isliked = true;
 
-  pushPage: any;
   constructor(
     private router: Router,
     private postService: PostService
@@ -40,10 +40,8 @@ export class PostComponent implements OnInit {
 
   isLiked(id: string): boolean {
     // Faire une requête au serveur pour savoir si l'user a liker.
-    let isLiked = false;
-
-    isLiked = !isLiked;
-    return isLiked;
+    this.isliked = !this.isliked;
+    return this.isliked;
   }
 
   onGoComments(postId: number) {

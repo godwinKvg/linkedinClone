@@ -42,7 +42,7 @@
       <ion-col>
         <ion-chip *ngIf="post.likes > 0">
           <ion-icon name="heart" color="danger"></ion-icon>
-          <ion-icon [name]="isLiked?'thumbs-up':'thumbs-up-outline'" color="primary"></ion-icon>
+          <ion-icon [name]="!isLiked()?'thumbs-up':'thumbs-up-outline'" color="primary"></ion-icon>
           <ion-icon name="flash" color="success"></ion-icon>
           <span> {{ post.likes | shortNumber }}</span>
         </ion-chip>
@@ -59,7 +59,7 @@
     <ion-toolbar>
       <ion-buttons class="ion-justify-content-around">
         <ion-button (click)="onLike(post)">
-          <ion-icon slot="icon-only" [name]="isLiked?'thumbs-up':'thumbs-up-outline'" [color]="isLiked?'primary':''">
+          <ion-icon slot="icon-only" [name]="isLiked()?'thumbs-up':'thumbs-up-outline'" [color]="isLiked?'primary':''">
           </ion-icon>
         </ion-button>
         <ion-button>

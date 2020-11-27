@@ -1,86 +1,81 @@
+<ion-item lines="none" padding *ngIf="data" mode="ios">
+    <ion-grid no-padding>
+        <ion-row>
+            <ion-col size="2">
+                <ion-avatar>
+                    <ion-img [src]="comment?.author_profile">
+                    </ion-img>
+                </ion-avatar>
 
-    <ion-item lines="none" padding *ngIf="data" mode="ios">
-        <ion-grid no-padding>
-            <ion-row>
-                <ion-col size="2">
-                    <ion-avatar>
-                        <ion-img [src]="comment?.author_profile">
-                        </ion-img>
-                    </ion-avatar>
+            </ion-col>
+            <ion-col size="10" no-padding>
+                <div class="ion-padding">
+                    <div>
+                        <div class="ion-float-right">
 
-                </ion-col>
-                <ion-col size="10" no-padding>
-                    <div class="ion-padding">
+                            <span>
+                                {{ (comment?.time - now < 120) ? '1 min': moment(comment?.time).fromNow() }}
+                            </span>
+                            <ion-button color="none">
+                                <ion-icon size="small" slot="icon-only" name="ellipsis-vertical" color="primary">
+                                </ion-icon>
+                            </ion-button>
+
+                        </div>
                         <div>
-                            <div class="ion-float-right">
-
-                                <span>
-                                    {{ (comment?.time - now < 120) ? '1 min': moment(comment?.time).fromNow() }}
-                                </span>
-                                <ion-button color="none">
-                                    <ion-icon size="small" slot="icon-only" name="ellipsis-vertical" color="primary">
-                                    </ion-icon>
-                                </ion-button>
-
-                            </div>
-                            <div>
-                                <b>Awesome Label</b>
-                                <p class="ion-no-margin">Lorem ipsum dolor sit amet.</p>
-                            </div>
-
+                            <b>Awesome Label</b>
+                            <p class="ion-no-margin">Lorem ipsum dolor sit amet.</p>
                         </div>
-                        <div style="margin-top: 12px;">
-                            {{ comment.content }}
-                        </div>
-                    </div>
-                    <div>
-                        <ion-buttons slot="start">
-                            <ion-button fill="clear" shape="round" (click)="likeOrUnlike()">
-                                <ion-icon slot="icon-only" [name]="isLiked()?'thumbs-up':'thumbs-up-outline'"
-                                    [color]="isLiked()?'primary':''"></ion-icon>
-                            </ion-button>
-                            <ion-button fill="clear" shape="round" (click)="hideOrShowCommentInput()">
-                                <ion-icon slot="icon-only" name="chatbox-outline"></ion-icon>
-                            </ion-button>
-                            <ion-item slot="end" style="font-size: small;">
-                                <ion-label> {{ comment.likes }} | Like</ion-label>
-                            </ion-item>
-                        </ion-buttons>
-                    </div>
-                    <ion-item lines="full" *ngIf="showCommentInput">
-                        <ion-input type="send" placeholder="As I lift my voice in praize"></ion-input>
-                        <ion-icon name="send-sharp" color="primary" slot="end"></ion-icon>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-item>
 
-    <ion-item lines="none" padding *ngIf="!data">
-        <ion-grid>
-            <ion-row>
-                <ion-col size="2">
-                    <ion-avatar>
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                    </ion-avatar>
-
-                </ion-col>
-                <ion-col size="10">
-                    <div class="ion-padding">
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                        <ion-skeleton-text animated></ion-skeleton-text>
                     </div>
-                    <div>
-                        <ion-skeleton-text animated></ion-skeleton-text>
+                    <div style="margin-top: 12px;">
+                        {{ comment.content }}
                     </div>
+                </div>
+                <div>
+                    <ion-buttons slot="start">
+                        <ion-button fill="clear" shape="round" (click)="likeOrUnlike()">
+                            <ion-icon slot="icon-only" [name]="isLiked()?'thumbs-up':'thumbs-up-outline'"
+                                [color]="isLiked()?'primary':''"></ion-icon>
+                        </ion-button>
+                        <ion-button fill="clear" shape="round" (click)="hideOrShowCommentInput()">
+                            <ion-icon slot="icon-only" name="chatbox-outline"></ion-icon>
+                        </ion-button>
+                        <ion-item slot="end" style="font-size: small;">
+                            <ion-label> {{ comment.likes }} | Like</ion-label>
+                        </ion-item>
+                    </ion-buttons>
+                </div>
+                <ion-item lines="full" *ngIf="showCommentInput">
+                    <ion-input type="send" placeholder="As I lift my voice in praize"></ion-input>
+                    <ion-icon name="send-sharp" color="primary" slot="end"></ion-icon>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-item>
 
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-item>
+<ion-item lines="none" padding *ngIf="!data">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="2">
+                <ion-avatar>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+
+            </ion-col>
+            <ion-col>
+
+            </ion-col>
+            <ion-col size="10" class="ion-padding-end">
+                <ion-skeleton-text animated></ion-skeleton-text>
+                <ion-skeleton-text animated></ion-skeleton-text>
+                <ion-skeleton-text animated></ion-skeleton-text>
+                <div>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </div>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-item>
