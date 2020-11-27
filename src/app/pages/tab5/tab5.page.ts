@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab5.page.scss'],
 })
 export class Tab5Page implements OnInit {
-
+  jobs = Array(4)
   constructor() { }
 
   ngOnInit() {
