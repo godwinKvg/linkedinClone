@@ -1,16 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 4
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 4</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="light">
+  <ion-item no-padding>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6" class="ion-text-start">
+          Notifications
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+          <ion-icon color="dark" name="settings"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
+  <ion-list class="ion-no-padding">
+    <ion-item *ngFor="let value of data" class="ion-no-padding">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="2">
+            <ion-thumbnail>
+              <img src="/assets/profile.png" />
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col size="8" >
+            Abdourazakou Tetereou and (number) other<b>reacted | liked | commented | shared </b> your post PostDetail
+          </ion-col>
+          <ion-col class="ion-text-end">
+            <ion-icon color="dark" size="small" name="ellipsis-vertical-outline"></ion-icon>
+            <br><br>12h
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="20%" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
