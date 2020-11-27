@@ -8,13 +8,12 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 export class Tab4Page {
 
-   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   data = Array(20);
-  constructor() {}
+  constructor() { }
 
   loadData(event) {
     setTimeout(() => {
-      console.log('Done');
       event.target.complete();
 
       // App logic to determine if all data is loaded
@@ -22,7 +21,7 @@ export class Tab4Page {
       if (this.data.length == 1000) {
         event.target.disabled = true;
       }
-      this.data = Array(40)
+      this.data = [...this.data, ...Array(20)]
     }, 500);
   }
 
